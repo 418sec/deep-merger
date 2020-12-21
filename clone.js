@@ -20,7 +20,7 @@ const clone = (toObj, fromObj) => {
     for (let keyIdx = 0; keyIdx < fromObjKeys.length; keyIdx++) {
       const fromObjKey = fromObjKeys[keyIdx];
 
-      if (toObj[fromObjKey] && fromObj[fromObjKey] // both of them has values
+      if (Object.prototype.hasOwnProperty.call(toObj, fromObjKey) && Object.prototype.hasOwnProperty.call(fromObj, fromObjKey) // both of them has values
         && typeof toObj[fromObjKey] === 'object' && typeof fromObj[fromObjKey] === 'object' // both of them type object
         && ((toObj[fromObjKey].constructor === Object && fromObj[fromObjKey].constructor === Object) // both of them really Object
         || (toObj[fromObjKey].constructor === Array && fromObj[fromObjKey].constructor === Array))) { // both of them Array
